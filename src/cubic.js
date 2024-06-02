@@ -1,3 +1,4 @@
+
 import { getPolynomialRoots } from './polynomial';
 
 export function cubicBezierLine(
@@ -98,16 +99,16 @@ export function cubicBezierLine(
       // See if point is on line segment
       if (a1x === a2x) {                       // vertical
         if (miny <= p10y && p10y <= maxy) {
-          if (result) result.push(p10x, p10y);
+          if (result) result.push({t, p: [p10x, p10y]});
           else        return 1;
         }
       } else if (a1y === a2y) {               // horizontal
         if (minx <= p10x && p10x <= maxx) {
-          if (result) result.push(p10x, p10y);
+          if (result) result.push({t, p: [p10x, p10y]});
           else        return 1;
         }
       } else if (p10x >= minx && p10y >= miny && p10x <= maxx && p10y <= maxy) {
-        if (result) result.push(p10x, p10y);
+        if (result) result.push({t, p: [p10x, p10y]});
         else        return 1;
       }
     }
